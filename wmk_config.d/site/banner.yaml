@@ -1,0 +1,12 @@
+# site.banner:
+# type bool; banner is hidden if false
+enable: false
+# type html; banner content
+html: |
+  <p>This banner is completely optional, and can be shown until a set date!</p>
+# type text; unique id of banner; used for preventing repeated display
+id: walto-banner
+# type date; banner is no longer shown after this date
+show_until: "2024-07-20T07:28:00Z"
+# type str; Text associated with close button
+close_label: Close

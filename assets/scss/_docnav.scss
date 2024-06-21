@@ -1,0 +1,131 @@
+.docnav {
+    @media ($break) {
+        display: none;
+    }
+}
+
+.docnav-title {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    padding: 0;
+    position: relative;
+    font-weight: bold;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    height: 30px;
+    .docnav-expand {
+        appearance: none;
+        background-color: transparent;
+        padding: 0 4px;
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 10px;
+        border-radius: 4px;
+    }
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+.docnav-details, .docnav-details[open] {
+    margin-top: 10px;
+    summary {
+        list-style-type: none;
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        align-items: center;
+        &::before, &::after {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-bottom: solid 2px var(--text-bright);
+            border-right: solid 2px var(--text-bright);
+            transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+            transform-origin: center center;
+            transform: translateY(-50%) rotateZ(45deg);
+            position: absolute;
+            top: 50%;
+            right: 5px;
+        }
+        &::after {
+            transform: translate(-60%) rotateZ(225deg);
+            opacity: 0;
+        }
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+        }
+    }
+    &[open] {
+        summary::before {
+            transform: translate(0%) rotateZ(45deg);
+            opacity: 0;
+        }
+        summary::after {
+            transform: translateY(-10%) rotateZ(225deg);
+            opacity: 1;
+        }
+    }
+}
+
+.docnav-mob {
+    text-align: right;
+
+    &[aria-expanded="true"] {
+        padding-bottom: 1em;
+        border-bottom: solid 1px;
+        margin-bottom: 1em;
+    }
+}
+
+.docnav-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .docnav-mob & {
+        margin-top: 0;
+    }
+
+    & & {
+        padding-left: 16px;
+
+        .docnav-mob & {
+            padding-left: 0;
+            padding-right: 16px;
+        }
+    }
+
+    .active {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: calc(1em / 2);
+            left: -16px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--text);
+        }
+
+        .docnav-mob &::before {
+            left: unset;
+            right: -16px;
+            top: calc(1em / 1.6);
+        }
+    }
+
+    a {
+        color: var(--text);
+    }
+}

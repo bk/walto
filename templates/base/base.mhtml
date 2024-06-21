@@ -1,0 +1,170 @@
+<%!
+  title = ''
+  description = ''
+  locale = ''
+  og_type = ''
+  main_img = ''
+%>\
+<!DOCTYPE html>
+<% locale = page.locale or self.attr.locale or site.locale %>\
+<html lang="${ page.lang or site.lang or (locale or 'en')[:2] }">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%block name="favicon">
+  % if site.favicon.apple_touch:
+    <link rel="apple-touch-icon" sizes="180x180" href="${ site.favicon.apple_touch }">
+  % endif
+  % if site.favicon.large:
+    <link rel="icon" type="image/png" sizes="32x32" href="${ site.favicon.large }">
+  % endif
+  % if site.favicon.small:
+    <link rel="icon" type="image/png" sizes="16x16" href="${ site.favicon.small }">
+  % endif
+  % if site.favicon.default:
+    <link rel="shortcut icon" href="${ site.favicon.default }">
+  % endif
+  % if site.favicon.msapp_tile_color or site.favicon.theme_color:
+    <meta name="msapplication-TileColor" content="${ site.favicon.msapp_tile_color or '#da532c' }">
+    <meta name="theme-color" content="${ site.favicon.theme_color or '#ffffff' }">
+  % endif
+  </%block>
+  <%block name="page_title">
+    <title>${ page.title or self.attr.title or site.name |h} | ${ site.project_name or '' |h}</title>
+  </%block>
+  <%block name="head_meta">
+  <%
+    default_og_type = 'website' if SELF_URL in ('/', '/index.html') else 'article'
+    og_image = page.main_img or self.attr.main_img or site.default_og_image or None
+    meta_description = page.description or page.summary or self.attr.description or None
+  %>
+    <meta content="${ page.title or self.attr.title or site.name |h} | ${ site.project_name or '' |h}" property="og:title">
+    <meta content="${ page.title or self.attr.title or site.name |h} |  | ${ site.project_name or '' |h}" property="twitter:title">
+  % if locale:
+    <meta content="${ locale }" property="og:locale">
+  % endif
+  % if meta_description:
+    <meta content="${ meta_description | h }" name="description">
+    <meta content="${ meta_description | h }" property="og:description">
+  % endif
+    <link rel="canonical" href="${ site.base_url or '' }${ SELF_URL | h }" >
+    <meta content="${ site.base_url or '' }${ SELF_URL | h }" property="og:url">
+    <meta content="${ site.project_name |h }" property="og:site_name">
+    <meta content="${ page.og_type or self.attr.og_type or default_og_type }" property="og:type">
+  % if og_image:
+    <meta content="${ og_image | url }" property="og:image">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="${ og_image | url }" property="twitter:image">
+  % endif
+  </%block>
+  <%block name="head_css">
+    <link rel="stylesheet" href="${ site.leading_path or '' }${ '/css/site.css' | fingerprint }">
+  </%block>
+  <%block name="head_js">
+    <script type="text/javascript" src="${ site.leading_path or '' }${ '/js/site.js' | fingerprint }" defer></script>
+  </%block>
+  <%block name="head_pagefind">
+  % if site.pagefind:
+    <meta data-pagefind-meta="image[content]" content="${ page.main_img or self.attr.main_img or site.default_og_image | url }" property="og:image">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+  % endif
+  </%block>
+  ${ site.head_extra or '' }
+  ${ page.head_extra or '' }
+  % if site.colors:
+    <style>
+      % for theme in site.colors:
+        body.${ theme } {
+          % for group in site.colors[theme]:
+            % for token in site.colors[theme][group]:
+              --${ token }: ${ site.colors[theme][group][token] };
+            % endfor
+          % endfor
+        }
+      % endfor
+    </style>
+  % endif
+</head>
+
+<body ${ 'data-pagefind-filter="section:{}"'.format(page.nav_section) if page.nav_section and page.nav_section.lower() != 'root' else '' } x-data="darkModeToggle()" x-init="init()" x-bind:class="{ dark: mode === 'dark', light: mode === 'light' }">
+    <%block name="banner"><%include file="banner.mc" /></%block>
+    <%block name="header_nav"><%include file="header_nav.mc" /></%block>
+  % if site.pagefind:
+    <div class="search">
+        <script src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+        <div id="search"></div>
+    </div>
+  % endif
+  <div class="column">
+    <%block name="docnav">
+      <aside>
+
+<nav class="docnav" aria-label="${ site.main_nav.title |h }"${ ' x-data="{expanded: false}"' if site.main_nav.sections_collapsible else '' }>
+  % if site.main_nav.sections_collapsible:
+    <span class="docnav-title">
+      ${ site.main_nav.title or 'Docs' }
+      <button class="docnav-expand"
+        x-text="expanded ? 'Collapse all' : 'Expand all'"
+        @click="
+          expanded = !expanded;
+          document.querySelectorAll('.docnav-details').forEach(el => {
+            if (expanded) {
+              el.setAttribute('open', expanded);
+            } else {
+              el.removeAttribute('open');
+            }
+          });
+        "
+      >Expand all</button>
+    </span>
+  % else:
+    <span class="docnav-title">${ site.main_nav.title or 'Docs' }</span>
+  % endif
+    <div id="docnav-inner" class="docnav-inner">
+      <%include file="docnav_list.mc" />
+    </div>
+</nav>
+      </aside>
+    </%block>
+    <main data-pagefind-body>
+      <%block name="content"></%block>
+      <%block name="prevnext"><%include file="prevnext.mc" /></%block>
+    </main>
+  </div>
+
+  <%block name="footer">
+  % if site.footer and not site.footer.disable:
+    <footer class="${ site.footer.css_class or 'contain' }">
+      ${ site.footer.html or '' }
+      % if site.footer.links:
+        <div class="links">
+      % endif
+      % for link in site.footer.links:
+        <a href="${ link.url |url }">${ link.title or link.alt or '?title' }</a>
+        % if link.image:
+          <a href="${ link.url | url }">
+            <img class="footer-link-img" src="${ link.image }" alt="${ link.alt or link.title or '' }" loading="lazy">
+          </a>
+        % endif
+      % endfor
+      % if site.footer.links:
+        </div>
+      % endif
+    </footer>
+  % endif
+  </%block>
+
+  % if site.pagefind:
+    <script>
+      window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search", showSubResults: true, showImages: false });
+      });
+    </script>
+  % endif
+
+  <%block name="end_of_body">${ site.end_of_body or '' }</%block>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+# site.footer:
+css_class: contain
+html: null
+links:
+  - url: https://wmk.baldr.net/
+    # image: /images/wmk.svg
+    alt: wmk
+    title: wmk

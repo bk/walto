@@ -1,0 +1,15 @@
+# NOTE: site config in data/wmk_config.d/
+nav: auto
+# For code highlighting, either set pandoc: true, or use the following
+markdown_extensions:
+  - extra
+  - sane_lists
+  - toc
+  - pymdownx.superfences
+  - pymdownx.highlight
+markdown_extension_configs:
+  pymdownx.highlight:
+    use_pygments: true
+toc: true
+cleanup_commands:
+  - "npx -y pagefind --site htdocs"

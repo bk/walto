@@ -1,0 +1,22 @@
+project_name: Walto — wmk documentation theme
+default_og_image: null
+favicon:
+  default: /meta/favicon.ico
+  small: /meta/favicon-16x16.png
+  large: /meta/favicon-32x32.png
+  apple_touch: /meta/apple-touch-icon.png
+home_title: Home
+main_nav:
+  title: Docs
+  sections_collapsible: false
+topnav_links:
+  - title: GitHub
+    url: https://github.com/wmk/walto
+    label: Walto
+    icon: /images/github.svg
+logo:
+  heading: Walto
+pagefind: true
+disable_sitemap: false
+base_url: ''
+leading_path: ''

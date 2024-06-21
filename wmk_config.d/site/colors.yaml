@@ -1,0 +1,100 @@
+# site.colors:
+light:
+  typography:
+    text: '#000000'
+    flip-text: '#ffffff'
+    text-main: '#363636'
+    text-bright: '#000000'
+    text-muted: '#70777f'
+    links: '#0076d1'
+    highlight: '#de935f'
+    selection: '#9e9e9e'
+    form-placeholder: '#949494'
+    form-text: '#1d1d1d'
+  background_colors:
+    background-body: '#fff'
+    background-input: '#efefef'
+    background-alt: '#f7f7f7'
+  code_block_colors:
+    # measured-light
+    base00: "#fdf9f5"
+    base01: "#f9f5f1"
+    base02: "#ffeada"
+    base03: "#5a5a5a"
+    base04: "#404040"
+    base05: "#292929"
+    base06: "#181818"
+    base07: "#000000"
+    base08: "#ac1f35"
+    base09: "#ad5601"
+    base0a: "#645a00"
+    base0b: "#0c680c"
+    base0c: "#01716f"
+    base0d: "#0158ad"
+    base0e: "#6645c2"
+    base0f: "#a81a66"
+  button_colors:
+    button-base: '#d0cfcf'
+    button-hover: '#9b9b9b'
+  scrollbar_colors:
+    scrollbar-thumb: '#aaaaaa'
+    scrollbar-thumb-hover: '#9b9b9b'
+  border_colors:
+    border: '#dbdbdb'
+  focus_colors:
+    focus: '#0096bfab'
+  pagefind_colors:
+    pagefind-ui-primary: '#000000'
+    pagefind-ui-secondary: '#000000'
+    pagefind-ui-background: '#efefef'
+    pagefind-ui-border: '#dbdbdb'
+    pagefind-ui-tag: '#efefef'
+dark:
+  typography:
+    text: '#e6edf3'
+    flip-text: '#e6edf3'
+    text-main: '#e6edf3'
+    text-bright: '#ffffff'
+    text-muted: '#c8c8c8'
+    links: '#58a4e0'
+    highlight: '#de935f'
+    selection: '#616161'
+    form-placeholder: '#e0e0e0'
+    form-text: '#f0f0f0'
+  background_colors:
+    background-body: '#121516'
+    background-input: '#1d1f21'
+    background-alt: '#080808'
+  code_block_colors:
+    # railscasts
+    base00: "#2b2b2b"
+    base01: "#272935"
+    base02: "#3a4055"
+    base03: "#5a647e"
+    base04: "#d4cfc9"
+    base05: "#e6e1dc"
+    base06: "#f4f1ed"
+    base07: "#f9f7f3"
+    base08: "#da4939"
+    base09: "#cc7833"
+    base0a: "#ffc66d"
+    base0b: "#a5c261"
+    base0c: "#519f50"
+    base0d: "#6d9cbe"
+    base0e: "#b6b3eb"
+    base0f: "#bc9458"
+  button_colors:
+    button-base: '#2b2b2b'
+    button-hover: '#606060'
+  scrollbar_colors:
+    scrollbar-thumb: '#555555'
+  border_colors:
+    border: '#dbdbdb'
+  focus_colors:
+    focus: '#0096bfab'
+  pagefind_colors:
+    pagefind-ui-primary: '#D8D8D8'
+    pagefind-ui-secondary: '#D8D8D8'
+    pagefind-ui-background: '#1d1f21'
+    pagefind-ui-border: '#2b2b2b'
+    pagefind-ui-tag: '#1d1f21'
