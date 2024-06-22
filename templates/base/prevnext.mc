@@ -18,7 +18,7 @@
     if not (nav_prev or nav_next):
         return ''
 %>
-<div class="prevnext">
+<div class="prevnext" data-pagefind-ignore>
   % if nav_prev:
     <span class="prev"><a href="${ nav_prev.url }">« ${ nav_prev.title }</a></span>
   % endif
