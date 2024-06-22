@@ -21,7 +21,7 @@
             <a ${ 'target="_blank"' if link.icon else '' } href="${ link.url | url }">
               ${ link.label or ('' if link.icon else '??') }
               % if link.icon:
-                <img class="nav-links" src="${ link.icon }" alt="${ link.label or '' |h }" width="32" height="32" decoding="async">
+                <img class="nav-links" src="${ link.icon }" alt="${ link.alt or link.label or '' |h }" width="32" height="32" decoding="async">
               % endif
             </a>
           </li>

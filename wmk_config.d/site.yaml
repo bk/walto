@@ -14,6 +14,7 @@ topnav_links:
     url: https://github.com/wmk/walto
     label: Walto
     icon: /images/github.svg
+    alt: GitHub icon
 logo:
   heading: Walto
 pagefind: true
