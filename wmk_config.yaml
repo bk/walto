@@ -2,7 +2,7 @@
 nav: auto
 # For code highlighting, either set pandoc: true, or use the following
 markdown_extensions:
-  - extra
+  - pymdownx.extra
   - sane_lists
   - toc
   - pymdownx.superfences
