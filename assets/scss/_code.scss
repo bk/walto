@@ -9,42 +9,42 @@ code {
 :root {
   /* NOTE: base03, base05, base06, base0e are currently not used */
   /* measured-light */
-  --base00: "#fdf9f5";
-  --base01: "#f9f5f1";
-  --base02: "#ffeada";
-  --base03: "#5a5a5a";
-  --base04: "#404040";
-  --base05: "#292929";
-  --base06: "#181818";
-  --base07: "#000000";
-  --base08: "#ac1f35";
-  --base09: "#ad5601";
-  --base0a: "#645a00";
-  --base0b: "#0c680c";
-  --base0c: "#01716f";
-  --base0d: "#0158ad";
-  --base0e: "#6645c2";
-  --base0f: "#a81a66";
+  --base00: #fdf9f5;
+  --base01: #f9f5f1;
+  --base02: #ffeada;
+  --base03: #5a5a5a;
+  --base04: #404040;
+  --base05: #292929;
+  --base06: #181818;
+  --base07: #000000;
+  --base08: #ac1f35;
+  --base09: #ad5601;
+  --base0a: #645a00;
+  --base0b: #0c680c;
+  --base0c: #01716f;
+  --base0d: #0158ad;
+  --base0e: #6645c2;
+  --base0f: #a81a66;
 }
 
 body.dark {
   /* railscasts */
-  --base00: "#2b2b2b";
-  --base01: "#272935";
-  --base02: "#3a4055";
-  --base03: "#5a647e";
-  --base04: "#d4cfc9";
-  --base05: "#e6e1dc";
-  --base06: "#f4f1ed";
-  --base07: "#f9f7f3";
-  --base08: "#da4939";
-  --base09: "#cc7833";
-  --base0a: "#ffc66d";
-  --base0b: "#a5c261";
-  --base0c: "#519f50";
-  --base0d: "#6d9cbe";
-  --base0e: "#b6b3eb";
-  --base0f: "#bc9458";
+  --base00: #2b2b2b;
+  --base01: #272935;
+  --base02: #3a4055;
+  --base03: #5a647e;
+  --base04: #d4cfc9;
+  --base05: #e6e1dc;
+  --base06: #f4f1ed;
+  --base07: #f9f7f3;
+  --base08: #da4939;
+  --base09: #cc7833;
+  --base0a: #ffc66d;
+  --base0b: #a5c261;
+  --base0c: #519f50;
+  --base0d: #6d9cbe;
+  --base0e: #b6b3eb;
+  --base0f: #bc9458;
 }
 
 code {
