@@ -6,7 +6,7 @@
   main_img = ''
 %>\
 <!DOCTYPE html>
-<% locale = page.locale or self.attr.locale or site.locale %>\
+<% locale = page.locale or self.attr.locale or site.locale or 'en' %>\
 <html lang="${ page.lang or site.lang or (locale or 'en')[:2] }">
 
 <head>
